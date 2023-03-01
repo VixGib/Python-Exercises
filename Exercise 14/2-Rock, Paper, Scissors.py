@@ -1,83 +1,85 @@
 import random
 
 
-def welcome_user(player_1):
-    print(f"Hi! {player_1}")
-
-
-def player_choice(choice):
-    if choice == "R":
-        print("you chose Rock!")
-    elif choice == "P":
-        print("you chose Paper!")
-    elif choice == "S":
-        print("you chose Scissors!")
-    else:
-        print("This is not a valid choice!")
-    return choice
-
-
-def player_choice_num(choice):
-    if choice == "R":
-        choice = 0
-    elif choice == "P":
-        choice = 1
-    elif choice == "S":
-        choice = 2
-    return choice
-
-
-def computer_choice(choice):
-    if choice == 0:
-        print("computer chose Rock!")
-    elif choice == 1:
-        print("computer chose Paper!")
-    elif choice == 2:
-        print("computer chose Scissors!")
-    else:
-        print("This is not a valid choice!")
-    return choice
-
-
-def declare_winner(player, computer):
-    if player == computer:
-        if player == 0 and computer == 0:
-            print(f"Its a tie! you both chose Rock! ")
-        elif player == 1 and computer == 1:
-            print(f"Its a tie! you both chose Paper! ")
-        elif player == 2 and computer == 2:
-            print(f"Its a tie! you both chose Scissors! ")
-    elif player == 0 and computer == 1:
-        print(f"Computer Wins! Paper wraps Rock!")
-    elif player == 0 and computer == 2:
-        print(f"You win! Rock blunts scissors!")
-    elif player == 1 and computer == 0:
-        print(f"You win! Paper wraps Rock!")
-    elif player == 1 and computer == 2:
-        print(f"Computer wins! Scissors cut Paper!")
-    elif player == 2 and computer == 0:
-        print(f"Computer wins! Rock blunts Scissors!")
-    elif player == 2 and computer == 1:
-        print(f"You win! Scissors cut Paper!")
-
-
-name = input("Welcome to Rock, Paper, Scissors! What is your name?: ")
-welcome_user(name.title())
-
+player_name = input("Welcome to Rock, Paper, Scissors! What is your name?: ")
 play = "y"
 while play:
 
-    user_selection = input("Please choose R for Rock, P for Paper or S for Scissors: ")
+    def welcome_user(player):
+        print(f"Hi {player.title()}!")
 
-    player = player_choice_num(player_choice(user_selection.upper()))
 
-    computer_selection = random.randint(0, 2)
+    welcome_user(player_name)
+#########################################################################################
 
-    computer = computer_choice(computer_selection)
 
-    declare_winner(player, computer)
+    def player_choice():
+        player_selection = input("Please choose R for Rock, P for Paper or S for Scissors: ")
+        selection = player_selection.upper()
+
+        if selection == "R":
+            print("you chose Rock!")
+        elif selection == "P":
+            print("you chose Paper!")
+        elif selection == "S":
+            print("you chose Scissors!")
+        else:
+            print("This is not a valid choice")
+        return selection
+
+
+    player_1 = player_choice()
+#####################################################################################
+    choices = ["R", "P", "S"]
+
+
+    def computer_choice():
+        computer_selection = random.choice(choices)
+        choice = computer_selection
+
+        if choice == "R":
+            print("computer chose Rock!")
+        elif choice == "P":
+            print("computer chose Paper!")
+        elif choice == "S":
+            print("computer chose Scissors!")
+        else:
+            print("This is not a valid choice")
+        return choice
+
+
+    computer_1 = computer_choice()
+####################################################################################
+
+    def declare_winner(player, computer):
+        if player == computer:
+            if player == "R" and computer == "R":
+                print(f"Its a tie! you both chose Rock! ")
+            elif player == "P" and computer == "P":
+                print(f"Its a tie! you both chose Paper! ")
+            elif player == "S" and computer == "S":
+                print(f"Its a tie! you both chose Scissors! ")
+        elif player == "R" and computer == "P":
+            print(f"Computer Wins! Paper wraps Rock!")
+        elif player == "R" and computer == "S":
+            print(f"You win! Rock blunts scissors!")
+        elif player == "P" and computer == "R":
+            print(f"You win! Paper wraps Rock!")
+        elif player == "P" and computer == "S":
+            print(f"Computer wins! Scissors cut Paper!")
+        elif player == "S" and computer == "R":
+            print(f"Computer wins! Rock blunts Scissors!")
+        elif player == "S" and computer == "P":
+            print(f"You win! Scissors cut Paper!")
+        else:
+            print("Better Luck Next Time!")
+        return player, computer
+
+
+    declare_winner(player_1, computer_1)
 
     play_again = input("Would you like to play again? Y/N  ")
     if play_again.lower() != "y":
         print("Thankyou for playing, come back soon!")
         break
+
