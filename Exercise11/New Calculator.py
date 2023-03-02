@@ -1,54 +1,80 @@
 Carry_on = "y"
 history = []
+operation_list = {"+", "-", "*", "/"}
+
 print("Hello! Welcome to Vicki's calculator")
-while Carry_on != "n":
-    def number_list():
+
+while Carry_on == "y":
+
+    def get_numbers():
         your_num = input("Give me your list of numbers leaving a space inbetween each one: ")
         your_num_list = your_num.split()
         your_num_str_to_int = list(map(int, your_num_list))
         return your_num_str_to_int
 
-    your_numbers = number_list()
 
-    operation = input("please select a function: + - * / : ")
-    your_num2 = input(int("Give me one more number: "))
+    number_list = get_numbers()
 
-    def operation(op):
-        if op in operation == "+":
-            for e in number_list():
-                equation = ("{0} + {1}".format(e, your_num2))
-                total = equation + "=" + (e + your_num2)
-                print(total)
+
+    def get_operation():
+        operation = input("please select a function: + - * / : ")
+        while operation not in operation_list:
+            print("This is not a valid function!")
+            operation = input("please select a function: + - * / : ")
+        return operation
+
+    chosen_operation = get_operation()
+
+
+    def get_second_num():
+        your_num2 = int(input("Give me one more number: "))
+        while not type(your_num2) == int:
+            print("That is not a number!")
+            your_num2 = int(input("Give me one more number: "))
+        return your_num2
+
+    second_num = get_second_num()
+
+    def calculation(num1, operation, num2):
+        if operation == "+":
+            for num in num1:
+                equation = "{0} + {1}".format(num, num2)
+                total = equation + " = " + str(num) + str(num2)
                 history.append(total)
+                return total
+
         elif operation == "-":
-            for e in your_numbers:
-                equation = ("{0} - {1}".format(e, your_num2))
-                total = (f"{equation} {+} "=" {-} (e + your_num2)
-                print(total)
+            for num in num1:
+                equation = "{0} - {1}".format(num, num2)
+                total = equation + " = " + str(num - num2)
                 history.append(total)
+                return total
 
         elif operation == "*":
-            for e in your_numbers:
-                equation = ("{0} * {1}".format(e, your_num2))
+            for num in num1:
+                equation = "{0} * {1}".format(num, num2)
+                total = equation + " = " + str(num * num2)
                 history.append(equation)
-                print(equation)
+                return total
 
         elif operation == "/":
-            for e in your_numbers:
-                equation = ("{0} / {1}".format (e, your_num2))
+            for num in num1:
+                equation = "{0} / {1}".format(num, num2)
+                total = equation + " = " + str(num % num2)
                 history.append(equation)
-                print(equation)
+                return total
+
         else:
             print()
-        return total
 
 
-    full_total = calculation()
+    full_total = calculation(number_list, chosen_operation, second_num)
+    print(full_total)
 
+    Carry_on = input("Would you like to use Vicki's calculator again: y/n? ").lower()
 
-    Carry_on = input("Would you like to use Vicki's calculator again: y/n? ")
-    print("Here are all of your calculations!")
-    print("\n".join(history))
+print("Here are all of your calculations!")
+print("\n".join(history))
 print("Thank you for using Vicki's calculator! ")
 
 
