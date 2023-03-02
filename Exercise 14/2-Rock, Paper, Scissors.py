@@ -2,6 +2,7 @@ import random
 
 
 player_name = input("Welcome to Rock, Paper, Scissors! What is your name?: ")
+choices = ["R", "P", "S"]
 play = "y"
 while play:
 
@@ -14,23 +15,23 @@ while play:
 
 
     def player_choice():
-        player_selection = input("Please choose R for Rock, P for Paper or S for Scissors: ")
-        selection = player_selection.upper()
+        player_selection = input("Please choose R for Rock, P for Paper or S for Scissors: ").upper()
+        while player_selection not in choices:
+            print("This is not a valid input!")
+            player_selection = input("Please choose R for Rock, P for Paper or S for Scissors: ").upper()
 
-        if selection == "R":
+        if player_selection == "R":
             print("you chose Rock!")
-        elif selection == "P":
+        elif player_selection == "P":
             print("you chose Paper!")
-        elif selection == "S":
+        elif player_selection == "S":
             print("you chose Scissors!")
-        else:
-            print("This is not a valid choice")
-        return selection
 
+        return player_selection
 
     player_1 = player_choice()
 #####################################################################################
-    choices = ["R", "P", "S"]
+
 
 
     def computer_choice():
