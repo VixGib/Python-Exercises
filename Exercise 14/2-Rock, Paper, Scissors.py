@@ -54,12 +54,7 @@ while play:
 
     def declare_winner(player, computer):
         if player == computer:
-            if player == "R" and computer == "R":
-                print(f"Its a tie! you both chose Rock! ")
-            elif player == "P" and computer == "P":
-                print(f"Its a tie! you both chose Paper! ")
-            elif player == "S" and computer == "S":
-                print(f"Its a tie! you both chose Scissors! ")
+            print(f"Its a tie!")
         elif player == "R" and computer == "P":
             print(f"Computer Wins! Paper wraps Rock!")
         elif player == "R" and computer == "S":
