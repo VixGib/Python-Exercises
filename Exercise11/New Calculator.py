@@ -24,11 +24,12 @@ def get_second_num():
         your_num2 = int(input("Give me one more number: "))
     return your_num2
 
+
 def calculation(num1, operation, num2):
     if operation == "+":
         for num in num1:
             equation = "{0} + {1}".format(num, num2)
-            total = equation + " = " + str(num) + str(num2)
+            total = equation + " = " + str(num + num2)
             history.append(total)
             return total
 
