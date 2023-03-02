@@ -62,10 +62,13 @@ Carry_on = "y"
 while Carry_on == "y":
 
     number_list = get_numbers()
+    print(number_list)
 
     chosen_operation = get_operation()
+    print(chosen_operation)
 
     second_num = get_second_num()
+    print(second_num)
 
     full_total = calculation(number_list, chosen_operation, second_num)
     print(full_total)
