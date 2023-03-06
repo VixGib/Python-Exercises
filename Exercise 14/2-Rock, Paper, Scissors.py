@@ -60,7 +60,7 @@ def declare_winner(player, computer):
 
 
 play = "y"
-while play:
+while play == "y":
 
     welcome_user(player_name)
 
@@ -72,6 +72,12 @@ while play:
 
     play_again = input("Would you like to play again? Y/N  ")
     if play_again.lower() != "y":
+        play = "n"
         print("Thankyou for playing, come back soon!")
-        break
+
+
+
+
+
+
 
