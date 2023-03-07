@@ -14,9 +14,12 @@ while Carry_on == "y":
 
     full_total = calculation(number_list, chosen_operation, second_num)
     print(full_total)
+    history.append(full_total)
 
     Carry_on = input("Would you like to use Vicki's calculator again: y/n? ").lower()
 
 print("Here are all of your calculations!")
-print("\n".join(history))
+for e in history:
+    for i in e:
+        print(i, sep=" ")
 print("Thank you for using Vicki's calculator! ")

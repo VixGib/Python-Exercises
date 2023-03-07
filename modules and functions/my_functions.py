@@ -1,5 +1,5 @@
 
-history = []
+
 
 
 def get_numbers():
@@ -27,31 +27,30 @@ def get_second_num():
 
 
 def calculation(num1, operation, num2):
+    history = []
     if operation == "+":
         for num in num1:
             equation = "{0} + {1}".format(num, num2)
             total = equation + " = " + str(num + num2)
             history.append(total)
-            print(total)
-
+            
     elif operation == "-":
         for num in num1:
             equation = "{0} - {1}".format(num, num2)
             total = equation + " = " + str(num - num2)
             history.append(total)
-            print(total)
 
     elif operation == "*":
         for num in num1:
             equation = "{0} * {1}".format(num, num2)
             total = equation + " = " + str(num * num2)
             history.append(total)
-            print(total)
 
     elif operation == "/":
         for num in num1:
             equation = "{0} / {1}".format(num, num2)
-            total = equation + " = " + str(num % num2)
+            total = equation + " = " + str(num / num2)
             history.append(total)
-            print(total)
+
+    return history
 
