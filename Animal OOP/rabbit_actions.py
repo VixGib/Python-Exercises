@@ -1,0 +1,26 @@
+from rabbit import Rabbit
+
+rabbit1 = Rabbit("Snowball", "White")
+rabbits = []
+rabbits.append(rabbit1)
+print(rabbit1)
+rabbit1.gender("Girl")
+rabbit1.legs(4)
+rabbit1.sleep()
+rabbit1.fav_food("Broccoli")
+rabbit1.fav_human("Gracie-Lea")
+rabbit1.play("My Tunnel")
+rabbit1.size("Small")
+rabbit1.age(1)
+
+rabbit2 = Rabbit("Lucky", "Black")
+rabbits.append(rabbit2)
+print(rabbit2)
+rabbit2.gender("Girl")
+rabbit2.legs(4)
+rabbit2.sleep()
+rabbit2.fav_food("Cauliflower leaves")
+rabbit2.fav_human("Gracie-Lea")
+rabbit2.play("My ball")
+rabbit2.size("Small")
+rabbit2.age(1)
