@@ -16,11 +16,11 @@ class Dog(Animal):
     def __str__(self):
         return "Woof! My name is " + self._name + " and I am " + self._colour
 
-    def sleep(self):
+    def set_sleep(self):
         print("I love to sleep all day ZZZZZZZZZZ")
 
-    def chase(self, thing):
+    def get_fav_thing_chase(self, thing):
         print("I like to chase ", thing)
 
-    def fav_toy(self, toy):
+    def get_fav_toy(self, toy):
         print("My favorite toy is my", toy)

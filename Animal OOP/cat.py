@@ -14,13 +14,13 @@ class Cat(Animal):
     def __str__(self):
         return "Meeeooowwww! My name is " + self._name + " and I am " + self._colour
 
-    def purr(self):
+    def set_purr(self):
         print("Purr purr")
 
-    def hunt(self, thing):
+    def set_hunt(self, thing):
         print("Yum yum, I like hunting for ", thing)
 
-    def make_sound(self):
+    def get_make_sound(self):
         return "Meow meow"
 
     def set_height(self, cat_height):

@@ -11,8 +11,8 @@ class Rabbit(Animal):
     def __str__(self):
         return "My name is " + self._name + " and I am " + self._colour
 
-    def play(self, item):
+    def get_fav_play_item(self, item):
         print("I like to play with", item)
 
-    def size(self, size):
+    def set_size(self, size):
         print("I am", size)
