@@ -35,4 +35,3 @@ person3.get_account_num("444555")
 person3.set_interest_rate("8%")
 person3.get_email("vickigibbison@getintotech.com")
 person3.get_phone_num("07955443322")
-

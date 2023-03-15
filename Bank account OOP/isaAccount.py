@@ -2,9 +2,12 @@ from currentAccount import CurrentAccount
 
 
 class IsaAccount(CurrentAccount):
+    balance = 5000
+
+    def __init__(self, first_name, last_name):
+        super().__init__(first_name, last_name)
 
     def get_service(self):
-        balance = 5000
         choice = ["y", "n"]
         userchoice = input("Would you like a service y/n ? ").lower()
 
@@ -25,30 +28,25 @@ class IsaAccount(CurrentAccount):
 
             if userchoice2 == "1":
                 withdrawal_amount = int(input("please enter withdrawal amount: "))
-                balance = balance - int(withdrawal_amount)
+                balance = IsaAccount.balance - int(withdrawal_amount)
                 available_balance = balance
                 print(f"withdrawal amount:£{withdrawal_amount} \nYour balance is now:£{balance}")
                 print(f"Your available balance is now:£{available_balance}")
                 return balance
             elif userchoice2 == "2":
                 deposit_amount = input("please enter deposit amount:£ ")
-                balance = balance + int(deposit_amount)
+                balance = IsaAccount.balance + int(deposit_amount)
                 available_balance = balance
                 print(f"deposit amount:£{deposit_amount} \nYour balance is now:£{balance}")
                 print(f"Your available balance is now:£{available_balance}")
                 return balance
             else:
-                available_balance = balance
-                print(f"your Balance is:£{balance}")
+                available_balance = IsaAccount.balance
+                print(f"your Balance is:£{IsaAccount.balance}")
                 print(f"Your available balance is now:£{available_balance}")
-                return balance
+                return IsaAccount.balance
 
-        return balance
-
-
-
-    def __init__(self, first_name, last_name):
-        super().__init__(first_name, last_name)
+        return IsaAccount.balance
 
     def get_account_type(self):
         print("Account Type: ISA")

@@ -1,7 +1,13 @@
-import getpass
-
 
 class CurrentAccount:
+    balance = 500
+
+    def __init__(self, an_firstname, an_lastname):
+        self._firstname = an_firstname
+        self._lastname = an_lastname
+
+    def __str__(self):
+        return "Account Name: " + self._firstname + " " + self._lastname
 
     def get_pin(self):
         print("Welcome to Vicki's ATM")
@@ -18,7 +24,6 @@ class CurrentAccount:
                 trials = 0
 
     def get_service(self):
-        balance = 500
         overdraft = 1500
         choice = ["y", "n"]
         userchoice = input("Would you like a service y/n ? ").lower()
@@ -40,32 +45,25 @@ class CurrentAccount:
 
             if userchoice2 == "1":
                 withdrawal_amount = int(input("please enter withdrawal amount: "))
-                balance = balance - int(withdrawal_amount)
-                available_balance = balance + overdraft
+                balance = CurrentAccount.balance - int(withdrawal_amount)
+                available_balance = CurrentAccount.balance + overdraft
                 print(f"withdrawal amount:£{withdrawal_amount} \nYour balance is now:£{balance}")
                 print(f"Your available balance is now:£{available_balance}")
                 return balance
             elif userchoice2 == "2":
                 deposit_amount = input("please enter deposit amount:£ ")
-                balance = balance + int(deposit_amount)
+                balance = CurrentAccount.balance + int(deposit_amount)
                 available_balance = balance + overdraft
                 print(f"deposit amount:£{deposit_amount} \nYour balance is now:£{balance}")
                 print(f"Your available balance is now:£{available_balance}")
                 return balance
             else:
-                available_balance = balance + overdraft
-                print(f"your Balance is:£{balance}")
+                available_balance = CurrentAccount.balance + overdraft
+                print(f"your Balance is:£{CurrentAccount.balance}")
                 print(f"Your available balance is now:£{available_balance}")
-                return balance
+                return CurrentAccount.balance
 
-        return balance
 
-    def __init__(self, an_firstname, an_lastname):
-        self._firstname = an_firstname
-        self._lastname = an_lastname
-
-    def __str__(self):
-        return "Account Name: " + self._firstname + " " + self._lastname
 
     def get_email(self, email):
         print("Customer email: ", email)
@@ -80,8 +78,7 @@ class CurrentAccount:
         print("Account No: ", account_num)
 
     def get_account_balance(self, balance):
-        print("Account Balance: ",balance )
-
+        print("Account Balance: ", balance)
 
     def set_interest_rate(self, interest_rate):
         print("Current account Interest Rate: ", interest_rate)

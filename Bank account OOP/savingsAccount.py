@@ -2,9 +2,12 @@ from currentAccount import CurrentAccount
 
 
 class SavingsAccount(CurrentAccount):
+    balance = 2000
+
+    def __init__(self, first_name, last_name):
+        super().__init__(first_name, last_name)
 
     def get_service(self):
-        balance = 2000
         choice = ["y", "n"]
         userchoice = input("Would you like a service y/n ? ").lower()
 
@@ -25,28 +28,25 @@ class SavingsAccount(CurrentAccount):
 
             if userchoice2 == "1":
                 withdrawal_amount = int(input("please enter withdrawal amount: "))
-                balance = balance - int(withdrawal_amount)
+                balance = SavingsAccount.balance - int(withdrawal_amount)
                 available_balance = balance
                 print(f"withdrawal amount:£{withdrawal_amount} \nYour balance is now:£{balance}")
                 print(f"Your available balance is now:£{available_balance}")
                 return balance
             elif userchoice2 == "2":
                 deposit_amount = input("please enter deposit amount:£ ")
-                balance = balance + int(deposit_amount)
+                balance = SavingsAccount.balance + int(deposit_amount)
                 available_balance = balance
                 print(f"deposit amount:£{deposit_amount} \nYour balance is now:£{balance}")
                 print(f"Your available balance is now:£{available_balance}")
                 return balance
             else:
-                available_balance = balance
-                print(f"your Balance is:£{balance}")
+                available_balance = SavingsAccount.balance
+                print(f"your Balance is:£{SavingsAccount.balance}")
                 print(f"Your available balance is now:£{available_balance}")
-                return balance
+                return SavingsAccount.balance
 
-        return balance
-
-    def __init__(self, first_name, last_name):
-        super().__init__(first_name, last_name)
+        return SavingsAccount.balance
 
     def get_account_type(self):
         print("Account Type: Savings")
